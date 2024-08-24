@@ -17,9 +17,9 @@ Before you begin, ensure you have the following installed on your system:
 To set up the project locally, follow these steps:
 
 **bash**
-git clone https://github.com/banfoud/Papers_recommender_system
-cd Papers_recommender_system
-pip install -r requirements.txt
+- git clone https://github.com/banfoud/Papers_recommender_system
+- cd Papers_recommender_system
+- pip install -r requirements.txt
 
 
 ## 🛠️ Usage
