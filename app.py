@@ -8,7 +8,7 @@ from wordcloud import WordCloud
 
 @st.cache(allow_output_mutation=True)
 def load_data():
-    data = pd.read_json('C:\\Users\\Brahim Anfoud\\Desktop\\Arxiv_recommender_system\\arxiv-metadata-oai-snapshot.json', lines = True)
+    data = pd.read_json('arxiv-metadata-oai-snapshot.json', lines = True)
     data['update_date'] = pd.to_datetime(data['update_date'])
     filtered_data = data[data['update_date'] > '2019-12-31']
     filtered_data['text'] = filtered_data['title'] + ' ' + filtered_data['abstract']
@@ -61,21 +61,18 @@ with tab1:
 with tab2:
     st.header("Data Exploration")
 
-    # Distribution de la longueur des titres
     st.subheader("Distribution de la longueur des titres")
     data['title_length'] = data['title'].apply(len)
     plt.figure(figsize=(10, 6))
     sns.histplot(data['title_length'], bins=30, kde=True)
     st.pyplot(plt)
 
-    # Distribution de la longueur des résumés
     st.subheader("Distribution de la longueur des résumés")
     data['abstract_length'] = data['abstract'].apply(len)
     plt.figure(figsize=(10, 6))
     sns.histplot(data['abstract_length'], bins=30, kde=True)
     st.pyplot(plt)
 
-    # Nuage de mots pour les titres
     st.subheader("Nuage de mots pour les titres")
     wordcloud_title = WordCloud(width=800, height=400, background_color='white').generate(' '.join(data['title']))
     plt.figure(figsize=(10, 6))
@@ -83,7 +80,6 @@ with tab2:
     plt.axis('off')
     st.pyplot(plt)
 
-    # Nuage de mots pour les résumés
     st.subheader("Nuage de mots pour les résumés")
     wordcloud_abstract = WordCloud(width=800, height=400, background_color='white').generate(' '.join(data['abstract']))
     plt.figure(figsize=(10, 6))
