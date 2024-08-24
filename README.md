@@ -7,9 +7,29 @@ Welcome to the Scientific Article Recommender System! This project uses **Senten
 ### Prerequisites
 - Python 3.7 or higher
 - Git
+- requirements.txt
+### Clone the Repository and Install Dependencies
 
-### Clone the Repository
-
-```bash
+\```bash
 git clone https://github.com/yourusername/my_recommender_project.git
 cd my_recommender_project
+pip install -r requirements.txt
+\```
+
+## 🛠️ Usage
+
+Start the application:
+
+\```bash
+streamlit run app.py
+\```
+
+### Example
+
+Input a title and abstract, and receive a list of similar articles based on semantic similarity.
+
+
+## 📝 License
+
+This project is licensed under the MIT License.
+
